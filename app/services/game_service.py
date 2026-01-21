@@ -15,6 +15,8 @@ class GameService:
 
     async def search_offers(self, search_query: str) -> list[GameOfferResponse]:
         filtered_offers = await search_offers(self.db, search_query)
+        if not filtered_offers:
+            return []
         return self._extract_offers(filtered_offers)
 
     @staticmethod
