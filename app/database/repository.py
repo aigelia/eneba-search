@@ -7,13 +7,11 @@ from app.database.models import Games, GameOffers, GamePlatforms
 
 
 async def get_all_offers(db: AsyncSession):
-    query = (
-        select(GameOffers, Games, GamePlatforms)
-        .join(Games, GameOffers.game_id == Games.id)
-        .join(GamePlatforms, GameOffers.platform_id == GamePlatforms.id)
+    query = select(GameOffers).options(
+        joinedload(GameOffers.game), joinedload(GameOffers.platform)
     )
     result = await db.execute(query)
-    return result.all()
+    return result.scalars().unique().all()
 
 
 async def search_offers(db: AsyncSession, search_query: str):
