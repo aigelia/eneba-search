@@ -2,31 +2,55 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+	<!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Styles -->
+    <link rel="stylesheet" href="/static/css/style.css">
 	<title>Eneba Search</title>
 </head>
 <body>
-	<header>
-		<div class="header_container">
-			<div class="logo_container">
-				<img src="">
+	<div class="content_container">
+		<header>
+			<div class="header_container">
+				<div class="logo_container">
+					<img src="/static/img/logo.svg" alt="Eneba Logo">
+				</div>
+				<div class="search_container">
+					<form action="/search" method="GET">
+						<button type="submit" class="search_icon">
+							<i class="fas fa-search"></i>
+						</button>
+
+						<input
+							type="text"
+							name="search_query"
+							placeholder="Search for games, top-ups and more"
+						>
+
+						<button type="button" class="clear_icon">
+							<i class="fas fa-times"></i>
+						</button>
+					</form>
+				</div>
+				<div class="region_container">
+					<span><img src="/static/img/lithuania.svg"></span>
+					<span>English EU | EUR</span>
+				</div>
+				<div class="filler"></div>
+				<div class="account_container">
+					<div class="header_icon"><i class="far fa-heart"></i></div>
+					<div class="header_icon"><i class="fas fa-shopping-cart"></i></div>
+            		<div class="header_icon"><i class="far fa-user-circle"></i></div>
+				</div>
 			</div>
-			<div class="search_container">
-				<form action="/search" method="GET">
-					<input type="text" name="search_query" placeholder="Search for games, top-ups and more">
-					<input type="submit" value="Search">
-				</form>
-			</div>
-			<div class="region_container">...</div>
-			<div class="account_container">
-				<div class="header_icon"></div>
-				<div class="header_icon"></div>
-				<div class="header_icon"></div>
-				<div class="account_header_icon"></div>
-			</div>
-		</div>
-	</header>
-	<div class="found_results">Results found: ...</div><!-- show only for search endpoint -->
-	<div class="results_container"><!-- cards --></div>
+		</header>
+		<div class="found_results">Results found: 12</div><!-- show only for search endpoint -->
+		<div class="results_container"><!-- GameOffer cards --></div>
+	</div>
 </body>
 <footer></footer>
 </html>
