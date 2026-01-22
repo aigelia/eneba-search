@@ -8,7 +8,7 @@ from app.database.connection import get_db
 router = APIRouter()
 
 
-@router.get("/", response_model=list[GameOfferResponse])
+@router.get("", response_model=list[GameOfferResponse])
 async def list_offers(search: str | None = Query(None), db: AsyncSession = Depends(get_db)):
     """
     List all game offers or search by game name (fuzzy matching).
