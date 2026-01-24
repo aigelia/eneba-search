@@ -39,11 +39,3 @@ class GameOffers(Base):
     game = relationship("Games", back_populates="offers")
     platform = relationship("GamePlatforms", back_populates="offers")
 
-
-class Currencies(Base):
-    __tablename__ = "currencies"
-
-    id: int = Column(Integer, primary_key=True, index=True)
-    code: str = Column(String(3), nullable=False, unique=True)
-    symbol: str = Column(String(5), nullable=False)
-    rate: float = Column(Float, nullable=False, default=1.0)

@@ -181,6 +181,7 @@ body {
     gap: 20px;
     place-items: center;
     justify-content: center;
+    margin-top: 20px;
     @media (min-width: 600px) {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -209,7 +210,7 @@ body {
     position: relative;
 }
 
-/* подвижная часть */
+/* moving part */
 .card_content {
     display: flex;
     flex-direction: column;

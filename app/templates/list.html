@@ -1,795 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<!-- Font Awesome -->
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/static/img/favicon.ico">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-	<!-- Google Fonts -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Styles -->
     <link rel="stylesheet" href="/static/css/style.css">
-	<title>Eneba Search</title>
+    <title>Eneba Search</title>
 </head>
 <body>
-	<div class="content_container">
-		<header>
-			<div class="header_container">
-				<div class="logo_container">
-					<img src="/static/img/logo.svg" alt="Eneba Logo">
-				</div>
-				<div class="search_container">
-					<form action="/search" method="GET">
-						<button type="submit" class="search_icon">
-							<i class="fas fa-search"></i>
-						</button>
+    <div class="content_container">
+       <header>
+          <div class="header_container">
+             <div class="logo_container">
+                <img src="/static/img/logo.svg" alt="Eneba Logo">
+             </div>
+             <div class="search_container">
+                <form action="/list" method="GET">
+                   <button type="submit" class="search_icon">
+                      <i class="fas fa-search"></i>
+                   </button>
 
-						<input
-							type="text"
-							name="search_query"
-							placeholder="Search for games, top-ups and more"
-						>
+                   <input
+                      type="text"
+                      name="search"
+                      placeholder="Search for games, top-ups and more"
+                      value="{{ search_query }}"
+                   >
 
-						<button type="button" class="clear_icon">
-							<i class="fas fa-times"></i>
-						</button>
-					</form>
-				</div>
-				<div class="region_container">
-					<span><img src="/static/img/lithuania.svg"></span>
-					<span>English EU | EUR</span>
-				</div>
-				<div class="account_container">
-					<div class="header_icon"><i class="far fa-heart"></i></div>
-					<div class="header_icon"><i class="fas fa-shopping-cart"></i></div>
-            		<div class="header_icon"><i class="far fa-user-circle"></i></div>
-				</div>
-			</div>
-		</header>
-		<div class="found_results">Results found: 12</div><!-- show only for search endpoint -->
-		<div class="results_container">
-			<!-- GameOffer cards -->
+                   <button type="button" class="clear_icon">
+                      <i class="fas fa-times"></i>
+                   </button>
+                </form>
+             </div>
+             <div class="region_container">
+                <span><img src="/static/img/lithuania.svg"></span>
+                <span>English EU | EUR</span>
+             </div>
+             <div class="account_container">
+                <div class="header_icon"><i class="far fa-heart"></i></div>
+                <div class="header_icon"><i class="fas fa-shopping-cart"></i></div>
+                <div class="header_icon"><i class="far fa-user-circle"></i></div>
+             </div>
+          </div>
+       </header>
 
-			<div class="card" style="background-image: url('/static/img/split_fiction.jpeg');">
-				<div class="card_header_icon"><i class="far fa-heart"></i></div>
-				<div class="card_content">
-					<div class="cashback_container">
-						<div class="cashback_label"><img src="/static/img/cashback_label.png" alt="Cashback"></div>
-					</div>
-					<div class="platform_container">
-						<img src="/static/img/steam.svg" alt="Steam">
-						<span>Steam</span>
-					</div>
-					<div class="game_info_container">
-						<div class="title_container">
-							<span>Split Fiction</span>
-						</div>
-						<div class="region_container">
-							<span>GLOBAL</span>
-						</div>
-						<div class="price_info_container">
-							<div class="discount">
-								<span>
-									From
-									<span class="old_price">€100</span><span class="cashback_discount_info"> -50%</span>
-								</span>
-							</div>
-							<div class="final_price"><span>€50 <i class="fa-regular fa-circle-info"></i></span></div>
-							<div class="cashback_discount_info">10% Cashback</div>
-							<div class="featured"><i class="far fa-heart"></i>100</div>
-							<div class="card_buttons">
-								<button class="button buy_button">Add to cart</button>
-								<button class="button options_button">Explore options</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="card" style="background-image: url('/static/img/split_fiction.jpeg');">
-				<div class="card_header_icon"><i class="far fa-heart"></i></div>
-				<div class="card_content">
-					<div class="cashback_container">
-						<div class="cashback_label"><img src="/static/img/cashback_label.png" alt="Cashback"></div>
-					</div>
-					<div class="platform_container">
-						<img src="/static/img/steam.svg" alt="Steam">
-						<span>Steam</span>
-					</div>
-					<div class="game_info_container">
-						<div class="title_container">
-							<span>Split Fiction</span>
-						</div>
-						<div class="region_container">
-							<span>GLOBAL</span>
-						</div>
-						<div class="price_info_container">
-							<div class="discount">
-								<span>
-									From
-									<span class="old_price">€100</span><span class="cashback_discount_info"> -50%</span>
-								</span>
-							</div>
-							<div class="final_price"><span>€50 <i class="fa-regular fa-circle-info"></i></span></div>
-							<div class="cashback_discount_info">10% Cashback</div>
-							<div class="featured"><i class="far fa-heart"></i>100</div>
-							<div class="card_buttons">
-								<button class="button buy_button">Add to cart</button>
-								<button class="button options_button">Explore options</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="card" style="background-image: url('/static/img/split_fiction.jpeg');">
-				<div class="card_header_icon"><i class="far fa-heart"></i></div>
-				<div class="card_content">
-					<div class="cashback_container">
-						<div class="cashback_label"><img src="/static/img/cashback_label.png" alt="Cashback"></div>
-					</div>
-					<div class="platform_container">
-						<img src="/static/img/steam.svg" alt="Steam">
-						<span>Steam</span>
-					</div>
-					<div class="game_info_container">
-						<div class="title_container">
-							<span>Split Fiction</span>
-						</div>
-						<div class="region_container">
-							<span>GLOBAL</span>
-						</div>
-						<div class="price_info_container">
-							<div class="discount">
-								<span>
-									From
-									<span class="old_price">€100</span><span class="cashback_discount_info"> -50%</span>
-								</span>
-							</div>
-							<div class="final_price"><span>€50 <i class="fa-regular fa-circle-info"></i></span></div>
-							<div class="cashback_discount_info">10% Cashback</div>
-							<div class="featured"><i class="far fa-heart"></i>100</div>
-							<div class="card_buttons">
-								<button class="button buy_button">Add to cart</button>
-								<button class="button options_button">Explore options</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="card" style="background-image: url('/static/img/split_fiction.jpeg');">
-				<div class="card_header_icon"><i class="far fa-heart"></i></div>
-				<div class="card_content">
-					<div class="cashback_container">
-						<div class="cashback_label"><img src="/static/img/cashback_label.png" alt="Cashback"></div>
-					</div>
-					<div class="platform_container">
-						<img src="/static/img/steam.svg" alt="Steam">
-						<span>Steam</span>
-					</div>
-					<div class="game_info_container">
-						<div class="title_container">
-							<span>Split Fiction</span>
-						</div>
-						<div class="region_container">
-							<span>GLOBAL</span>
-						</div>
-						<div class="price_info_container">
-							<div class="discount">
-								<span>
-									From
-									<span class="old_price">€100</span><span class="cashback_discount_info"> -50%</span>
-								</span>
-							</div>
-							<div class="final_price"><span>€50 <i class="fa-regular fa-circle-info"></i></span></div>
-							<div class="cashback_discount_info">10% Cashback</div>
-							<div class="featured"><i class="far fa-heart"></i>100</div>
-							<div class="card_buttons">
-								<button class="button buy_button">Add to cart</button>
-								<button class="button options_button">Explore options</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="card" style="background-image: url('/static/img/split_fiction.jpeg');">
-				<div class="card_header_icon"><i class="far fa-heart"></i></div>
-				<div class="card_content">
-					<div class="cashback_container">
-						<div class="cashback_label"><img src="/static/img/cashback_label.png" alt="Cashback"></div>
-					</div>
-					<div class="platform_container">
-						<img src="/static/img/steam.svg" alt="Steam">
-						<span>Steam</span>
-					</div>
-					<div class="game_info_container">
-						<div class="title_container">
-							<span>Split Fiction</span>
-						</div>
-						<div class="region_container">
-							<span>GLOBAL</span>
-						</div>
-						<div class="price_info_container">
-							<div class="discount">
-								<span>
-									From
-									<span class="old_price">€100</span><span class="cashback_discount_info"> -50%</span>
-								</span>
-							</div>
-							<div class="final_price"><span>€50 <i class="fa-regular fa-circle-info"></i></span></div>
-							<div class="cashback_discount_info">10% Cashback</div>
-							<div class="featured"><i class="far fa-heart"></i>100</div>
-							<div class="card_buttons">
-								<button class="button buy_button">Add to cart</button>
-								<button class="button options_button">Explore options</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="card" style="background-image: url('/static/img/split_fiction.jpeg');">
-				<div class="card_header_icon"><i class="far fa-heart"></i></div>
-				<div class="card_content">
-					<div class="cashback_container">
-						<div class="cashback_label"><img src="/static/img/cashback_label.png" alt="Cashback"></div>
-					</div>
-					<div class="platform_container">
-						<img src="/static/img/steam.svg" alt="Steam">
-						<span>Steam</span>
-					</div>
-					<div class="game_info_container">
-						<div class="title_container">
-							<span>Split Fiction</span>
-						</div>
-						<div class="region_container">
-							<span>GLOBAL</span>
-						</div>
-						<div class="price_info_container">
-							<div class="discount">
-								<span>
-									From
-									<span class="old_price">€100</span><span class="cashback_discount_info"> -50%</span>
-								</span>
-							</div>
-							<div class="final_price"><span>€50 <i class="fa-regular fa-circle-info"></i></span></div>
-							<div class="cashback_discount_info">10% Cashback</div>
-							<div class="featured"><i class="far fa-heart"></i>100</div>
-							<div class="card_buttons">
-								<button class="button buy_button">Add to cart</button>
-								<button class="button options_button">Explore options</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="card" style="background-image: url('/static/img/split_fiction.jpeg');">
-				<div class="card_header_icon"><i class="far fa-heart"></i></div>
-				<div class="card_content">
-					<div class="cashback_container">
-						<div class="cashback_label"><img src="/static/img/cashback_label.png" alt="Cashback"></div>
-					</div>
-					<div class="platform_container">
-						<img src="/static/img/steam.svg" alt="Steam">
-						<span>Steam</span>
-					</div>
-					<div class="game_info_container">
-						<div class="title_container">
-							<span>Split Fiction</span>
-						</div>
-						<div class="region_container">
-							<span>GLOBAL</span>
-						</div>
-						<div class="price_info_container">
-							<div class="discount">
-								<span>
-									From
-									<span class="old_price">€100</span><span class="cashback_discount_info"> -50%</span>
-								</span>
-							</div>
-							<div class="final_price"><span>€50 <i class="fa-regular fa-circle-info"></i></span></div>
-							<div class="cashback_discount_info">10% Cashback</div>
-							<div class="featured"><i class="far fa-heart"></i>100</div>
-							<div class="card_buttons">
-								<button class="button buy_button">Add to cart</button>
-								<button class="button options_button">Explore options</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="card" style="background-image: url('/static/img/split_fiction.jpeg');">
-				<div class="card_header_icon"><i class="far fa-heart"></i></div>
-				<div class="card_content">
-					<div class="cashback_container">
-						<div class="cashback_label"><img src="/static/img/cashback_label.png" alt="Cashback"></div>
-					</div>
-					<div class="platform_container">
-						<img src="/static/img/steam.svg" alt="Steam">
-						<span>Steam</span>
-					</div>
-					<div class="game_info_container">
-						<div class="title_container">
-							<span>Split Fiction</span>
-						</div>
-						<div class="region_container">
-							<span>GLOBAL</span>
-						</div>
-						<div class="price_info_container">
-							<div class="discount">
-								<span>
-									From
-									<span class="old_price">€100</span><span class="cashback_discount_info"> -50%</span>
-								</span>
-							</div>
-							<div class="final_price"><span>€50 <i class="fa-regular fa-circle-info"></i></span></div>
-							<div class="cashback_discount_info">10% Cashback</div>
-							<div class="featured"><i class="far fa-heart"></i>100</div>
-							<div class="card_buttons">
-								<button class="button buy_button">Add to cart</button>
-								<button class="button options_button">Explore options</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="card" style="background-image: url('/static/img/split_fiction.jpeg');">
-				<div class="card_header_icon"><i class="far fa-heart"></i></div>
-				<div class="card_content">
-					<div class="cashback_container">
-						<div class="cashback_label"><img src="/static/img/cashback_label.png" alt="Cashback"></div>
-					</div>
-					<div class="platform_container">
-						<img src="/static/img/steam.svg" alt="Steam">
-						<span>Steam</span>
-					</div>
-					<div class="game_info_container">
-						<div class="title_container">
-							<span>Split Fiction</span>
-						</div>
-						<div class="region_container">
-							<span>GLOBAL</span>
-						</div>
-						<div class="price_info_container">
-							<div class="discount">
-								<span>
-									From
-									<span class="old_price">€100</span><span class="cashback_discount_info"> -50%</span>
-								</span>
-							</div>
-							<div class="final_price"><span>€50 <i class="fa-regular fa-circle-info"></i></span></div>
-							<div class="cashback_discount_info">10% Cashback</div>
-							<div class="featured"><i class="far fa-heart"></i>100</div>
-							<div class="card_buttons">
-								<button class="button buy_button">Add to cart</button>
-								<button class="button options_button">Explore options</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="card" style="background-image: url('/static/img/split_fiction.jpeg');">
-				<div class="card_header_icon"><i class="far fa-heart"></i></div>
-				<div class="card_content">
-					<div class="cashback_container">
-						<div class="cashback_label"><img src="/static/img/cashback_label.png" alt="Cashback"></div>
-					</div>
-					<div class="platform_container">
-						<img src="/static/img/steam.svg" alt="Steam">
-						<span>Steam</span>
-					</div>
-					<div class="game_info_container">
-						<div class="title_container">
-							<span>Split Fiction</span>
-						</div>
-						<div class="region_container">
-							<span>GLOBAL</span>
-						</div>
-						<div class="price_info_container">
-							<div class="discount">
-								<span>
-									From
-									<span class="old_price">€100</span><span class="cashback_discount_info"> -50%</span>
-								</span>
-							</div>
-							<div class="final_price"><span>€50 <i class="fa-regular fa-circle-info"></i></span></div>
-							<div class="cashback_discount_info">10% Cashback</div>
-							<div class="featured"><i class="far fa-heart"></i>100</div>
-							<div class="card_buttons">
-								<button class="button buy_button">Add to cart</button>
-								<button class="button options_button">Explore options</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="card" style="background-image: url('/static/img/split_fiction.jpeg');">
-				<div class="card_header_icon"><i class="far fa-heart"></i></div>
-				<div class="card_content">
-					<div class="cashback_container">
-						<div class="cashback_label"><img src="/static/img/cashback_label.png" alt="Cashback"></div>
-					</div>
-					<div class="platform_container">
-						<img src="/static/img/steam.svg" alt="Steam">
-						<span>Steam</span>
-					</div>
-					<div class="game_info_container">
-						<div class="title_container">
-							<span>Split Fiction</span>
-						</div>
-						<div class="region_container">
-							<span>GLOBAL</span>
-						</div>
-						<div class="price_info_container">
-							<div class="discount">
-								<span>
-									From
-									<span class="old_price">€100</span><span class="cashback_discount_info"> -50%</span>
-								</span>
-							</div>
-							<div class="final_price"><span>€50 <i class="fa-regular fa-circle-info"></i></span></div>
-							<div class="cashback_discount_info">10% Cashback</div>
-							<div class="featured"><i class="far fa-heart"></i>100</div>
-							<div class="card_buttons">
-								<button class="button buy_button">Add to cart</button>
-								<button class="button options_button">Explore options</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="card" style="background-image: url('/static/img/split_fiction.jpeg');">
-				<div class="card_header_icon"><i class="far fa-heart"></i></div>
-				<div class="card_content">
-					<div class="cashback_container">
-						<div class="cashback_label"><img src="/static/img/cashback_label.png" alt="Cashback"></div>
-					</div>
-					<div class="platform_container">
-						<img src="/static/img/steam.svg" alt="Steam">
-						<span>Steam</span>
-					</div>
-					<div class="game_info_container">
-						<div class="title_container">
-							<span>Split Fiction</span>
-						</div>
-						<div class="region_container">
-							<span>GLOBAL</span>
-						</div>
-						<div class="price_info_container">
-							<div class="discount">
-								<span>
-									From
-									<span class="old_price">€100</span><span class="cashback_discount_info"> -50%</span>
-								</span>
-							</div>
-							<div class="final_price"><span>€50 <i class="fa-regular fa-circle-info"></i></span></div>
-							<div class="cashback_discount_info">10% Cashback</div>
-							<div class="featured"><i class="far fa-heart"></i>100</div>
-							<div class="card_buttons">
-								<button class="button buy_button">Add to cart</button>
-								<button class="button options_button">Explore options</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="card" style="background-image: url('/static/img/split_fiction.jpeg');">
-				<div class="card_header_icon"><i class="far fa-heart"></i></div>
-				<div class="card_content">
-					<div class="cashback_container">
-						<div class="cashback_label"><img src="/static/img/cashback_label.png" alt="Cashback"></div>
-					</div>
-					<div class="platform_container">
-						<img src="/static/img/steam.svg" alt="Steam">
-						<span>Steam</span>
-					</div>
-					<div class="game_info_container">
-						<div class="title_container">
-							<span>Split Fiction</span>
-						</div>
-						<div class="region_container">
-							<span>GLOBAL</span>
-						</div>
-						<div class="price_info_container">
-							<div class="discount">
-								<span>
-									From
-									<span class="old_price">€100</span><span class="cashback_discount_info"> -50%</span>
-								</span>
-							</div>
-							<div class="final_price"><span>€50 <i class="fa-regular fa-circle-info"></i></span></div>
-							<div class="cashback_discount_info">10% Cashback</div>
-							<div class="featured"><i class="far fa-heart"></i>100</div>
-							<div class="card_buttons">
-								<button class="button buy_button">Add to cart</button>
-								<button class="button options_button">Explore options</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="card" style="background-image: url('/static/img/split_fiction.jpeg');">
-				<div class="card_header_icon"><i class="far fa-heart"></i></div>
-				<div class="card_content">
-					<div class="cashback_container">
-						<div class="cashback_label"><img src="/static/img/cashback_label.png" alt="Cashback"></div>
-					</div>
-					<div class="platform_container">
-						<img src="/static/img/steam.svg" alt="Steam">
-						<span>Steam</span>
-					</div>
-					<div class="game_info_container">
-						<div class="title_container">
-							<span>Split Fiction</span>
-						</div>
-						<div class="region_container">
-							<span>GLOBAL</span>
-						</div>
-						<div class="price_info_container">
-							<div class="discount">
-								<span>
-									From
-									<span class="old_price">€100</span><span class="cashback_discount_info"> -50%</span>
-								</span>
-							</div>
-							<div class="final_price"><span>€50 <i class="fa-regular fa-circle-info"></i></span></div>
-							<div class="cashback_discount_info">10% Cashback</div>
-							<div class="featured"><i class="far fa-heart"></i>100</div>
-							<div class="card_buttons">
-								<button class="button buy_button">Add to cart</button>
-								<button class="button options_button">Explore options</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="card" style="background-image: url('/static/img/split_fiction.jpeg');">
-				<div class="card_header_icon"><i class="far fa-heart"></i></div>
-				<div class="card_content">
-					<div class="cashback_container">
-						<div class="cashback_label"><img src="/static/img/cashback_label.png" alt="Cashback"></div>
-					</div>
-					<div class="platform_container">
-						<img src="/static/img/steam.svg" alt="Steam">
-						<span>Steam</span>
-					</div>
-					<div class="game_info_container">
-						<div class="title_container">
-							<span>Split Fiction</span>
-						</div>
-						<div class="region_container">
-							<span>GLOBAL</span>
-						</div>
-						<div class="price_info_container">
-							<div class="discount">
-								<span>
-									From
-									<span class="old_price">€100</span><span class="cashback_discount_info"> -50%</span>
-								</span>
-							</div>
-							<div class="final_price"><span>€50 <i class="fa-regular fa-circle-info"></i></span></div>
-							<div class="cashback_discount_info">10% Cashback</div>
-							<div class="featured"><i class="far fa-heart"></i>100</div>
-							<div class="card_buttons">
-								<button class="button buy_button">Add to cart</button>
-								<button class="button options_button">Explore options</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="card" style="background-image: url('/static/img/split_fiction.jpeg');">
-				<div class="card_header_icon"><i class="far fa-heart"></i></div>
-				<div class="card_content">
-					<div class="cashback_container">
-						<div class="cashback_label"><img src="/static/img/cashback_label.png" alt="Cashback"></div>
-					</div>
-					<div class="platform_container">
-						<img src="/static/img/steam.svg" alt="Steam">
-						<span>Steam</span>
-					</div>
-					<div class="game_info_container">
-						<div class="title_container">
-							<span>Split Fiction</span>
-						</div>
-						<div class="region_container">
-							<span>GLOBAL</span>
-						</div>
-						<div class="price_info_container">
-							<div class="discount">
-								<span>
-									From
-									<span class="old_price">€100</span><span class="cashback_discount_info"> -50%</span>
-								</span>
-							</div>
-							<div class="final_price"><span>€50 <i class="fa-regular fa-circle-info"></i></span></div>
-							<div class="cashback_discount_info">10% Cashback</div>
-							<div class="featured"><i class="far fa-heart"></i>100</div>
-							<div class="card_buttons">
-								<button class="button buy_button">Add to cart</button>
-								<button class="button options_button">Explore options</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="card" style="background-image: url('/static/img/split_fiction.jpeg');">
-				<div class="card_header_icon"><i class="far fa-heart"></i></div>
-				<div class="card_content">
-					<div class="cashback_container">
-						<div class="cashback_label"><img src="/static/img/cashback_label.png" alt="Cashback"></div>
-					</div>
-					<div class="platform_container">
-						<img src="/static/img/steam.svg" alt="Steam">
-						<span>Steam</span>
-					</div>
-					<div class="game_info_container">
-						<div class="title_container">
-							<span>Split Fiction</span>
-						</div>
-						<div class="region_container">
-							<span>GLOBAL</span>
-						</div>
-						<div class="price_info_container">
-							<div class="discount">
-								<span>
-									From
-									<span class="old_price">€100</span><span class="cashback_discount_info"> -50%</span>
-								</span>
-							</div>
-							<div class="final_price"><span>€50 <i class="fa-regular fa-circle-info"></i></span></div>
-							<div class="cashback_discount_info">10% Cashback</div>
-							<div class="featured"><i class="far fa-heart"></i>100</div>
-							<div class="card_buttons">
-								<button class="button buy_button">Add to cart</button>
-								<button class="button options_button">Explore options</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="card" style="background-image: url('/static/img/split_fiction.jpeg');">
-				<div class="card_header_icon"><i class="far fa-heart"></i></div>
-				<div class="card_content">
-					<div class="cashback_container">
-						<div class="cashback_label"><img src="/static/img/cashback_label.png" alt="Cashback"></div>
-					</div>
-					<div class="platform_container">
-						<img src="/static/img/steam.svg" alt="Steam">
-						<span>Steam</span>
-					</div>
-					<div class="game_info_container">
-						<div class="title_container">
-							<span>Split Fiction</span>
-						</div>
-						<div class="region_container">
-							<span>GLOBAL</span>
-						</div>
-						<div class="price_info_container">
-							<div class="discount">
-								<span>
-									From
-									<span class="old_price">€100</span><span class="cashback_discount_info"> -50%</span>
-								</span>
-							</div>
-							<div class="final_price"><span>€50 <i class="fa-regular fa-circle-info"></i></span></div>
-							<div class="cashback_discount_info">10% Cashback</div>
-							<div class="featured"><i class="far fa-heart"></i>100</div>
-							<div class="card_buttons">
-								<button class="button buy_button">Add to cart</button>
-								<button class="button options_button">Explore options</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="card" style="background-image: url('/static/img/split_fiction.jpeg');">
-				<div class="card_header_icon"><i class="far fa-heart"></i></div>
-				<div class="card_content">
-					<div class="cashback_container">
-						<div class="cashback_label"><img src="/static/img/cashback_label.png" alt="Cashback"></div>
-					</div>
-					<div class="platform_container">
-						<img src="/static/img/steam.svg" alt="Steam">
-						<span>Steam</span>
-					</div>
-					<div class="game_info_container">
-						<div class="title_container">
-							<span>Split Fiction</span>
-						</div>
-						<div class="region_container">
-							<span>GLOBAL</span>
-						</div>
-						<div class="price_info_container">
-							<div class="discount">
-								<span>
-									From
-									<span class="old_price">€100</span><span class="cashback_discount_info"> -50%</span>
-								</span>
-							</div>
-							<div class="final_price"><span>€50 <i class="fa-regular fa-circle-info"></i></span></div>
-							<div class="cashback_discount_info">10% Cashback</div>
-							<div class="featured"><i class="far fa-heart"></i>100</div>
-							<div class="card_buttons">
-								<button class="button buy_button">Add to cart</button>
-								<button class="button options_button">Explore options</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="card" style="background-image: url('/static/img/split_fiction.jpeg');">
-				<div class="card_header_icon"><i class="far fa-heart"></i></div>
-				<div class="card_content">
-					<div class="cashback_container">
-						<div class="cashback_label"><img src="/static/img/cashback_label.png" alt="Cashback"></div>
-					</div>
-					<div class="platform_container">
-						<img src="/static/img/steam.svg" alt="Steam">
-						<span>Steam</span>
-					</div>
-					<div class="game_info_container">
-						<div class="title_container">
-							<span>Split Fiction</span>
-						</div>
-						<div class="region_container">
-							<span>GLOBAL</span>
-						</div>
-						<div class="price_info_container">
-							<div class="discount">
-								<span>
-									From
-									<span class="old_price">€100</span><span class="cashback_discount_info"> -50%</span>
-								</span>
-							</div>
-							<div class="final_price"><span>€50 <i class="fa-regular fa-circle-info"></i></span></div>
-							<div class="cashback_discount_info">10% Cashback</div>
-							<div class="featured"><i class="far fa-heart"></i>100</div>
-							<div class="card_buttons">
-								<button class="button buy_button">Add to cart</button>
-								<button class="button options_button">Explore options</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="card" style="background-image: url('/static/img/split_fiction.jpeg');">
-				<div class="card_header_icon"><i class="far fa-heart"></i></div>
-				<div class="card_content">
-					<div class="cashback_container">
-						<div class="cashback_label"><img src="/static/img/cashback_label.png" alt="Cashback"></div>
-					</div>
-					<div class="platform_container">
-						<img src="/static/img/steam.svg" alt="Steam">
-						<span>Steam</span>
-					</div>
-					<div class="game_info_container">
-						<div class="title_container">
-							<span>Split Fiction</span>
-						</div>
-						<div class="region_container">
-							<span>GLOBAL</span>
-						</div>
-						<div class="price_info_container">
-							<div class="discount">
-								<span>
-									From
-									<span class="old_price">€100</span><span class="cashback_discount_info"> -50%</span>
-								</span>
-							</div>
-							<div class="final_price"><span>€50 <i class="fa-regular fa-circle-info"></i></span></div>
-							<div class="cashback_discount_info">10% Cashback</div>
-							<div class="featured"><i class="far fa-heart"></i>100</div>
-							<div class="card_buttons">
-								<button class="button buy_button">Add to cart</button>
-								<button class="button options_button">Explore options</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+       {% if search_query %}
+       <div class="found_results">Results found: {{ results_count }}</div>
+       {% endif %}
 
-			<!-- End of GameOffer cards -->
-		</div>
-	</div>
+       <div class="results_container">
+          {% for game in games %}
+          <div class="card" style="background-image: url('{{ game.image_url }}');">
+             <div class="card_header_icon"><i class="far fa-heart"></i></div>
+             <div class="card_content">
+                {% if game.cashback_amount %}
+                <div class="cashback_container">
+                   <div class="cashback_label"><img src="/static/img/cashback_label.png" alt="Cashback"></div>
+                </div>
+                {% endif %}
+
+                <div class="platform_container">
+                   <img src="{{ game.platform_icon_url }}" alt="{{ game.platform }}">
+                   <span>{{ game.platform }}</span>
+                </div>
+
+                <div class="game_info_container">
+                   <!-- Title: "Game Name (Platform) Edition Region" -->
+                   <div class="title_container">
+                      <span>
+                         {{ game.title }} ({{ game.platform }})
+                         {% if game.edition %} {{ game.edition }}{% endif %}
+                         {{ game.region }}
+                      </span>
+                   </div>
+
+                   <div class="region_container">
+                      <span>{{ game.region }}</span>
+                   </div>
+
+                   <div class="price_info_container">
+                      <div class="discount">
+                         <span>
+                            From
+                            {% if game.final_price %}
+                            <span class="old_price" style="text-decoration: line-through;">€{{ "%.2f"|format(game.full_price) }}</span>
+                            <span class="cashback_discount_info"> -{{ game.discount_percent }}%</span>
+                            {% endif %}
+                         </span>
+                      </div>
+
+
+                      <div class="final_price">
+                         <span>
+                            €{{ "%.2f"|format(game.final_price if game.final_price else game.full_price) }}
+                            <i class="fa-regular fa-circle-info"></i>
+                         </span>
+                      </div>
+
+                      {% if game.cashback_amount %}
+                      <div class="cashback_discount_info">Cashback: €{{ "%.2f"|format(game.cashback_amount) }}</div>
+                      {% endif %}
+
+                      <div class="featured"><i class="far fa-heart"></i> {{ game.likes_count }}</div>
+
+                      <div class="card_buttons">
+                         <button class="button buy_button">Add to cart</button>
+                         <button class="button options_button">Explore options</button>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>
+          {% endfor %}
+          <!-- End of GameOffer cards -->
+       </div>
+    </div>
 </body>
 <footer></footer>
 </html>
