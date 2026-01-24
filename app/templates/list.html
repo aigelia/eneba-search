@@ -18,7 +18,7 @@
        <header>
           <div class="header_container">
              <div class="logo_container">
-                <img src="/static/img/logo.svg" alt="Eneba Logo">
+                <a href="/list"><img src="/static/img/logo.svg" alt="Eneba Logo"></a>
              </div>
              <div class="search_container">
                 <form action="/list" method="GET">
@@ -33,7 +33,7 @@
                       value="{{ search_query }}"
                    >
 
-                   <button type="button" class="clear_icon">
+                   <button type="button" class="clear_icon" onclick="clearSearch()">
                       <i class="fas fa-times"></i>
                    </button>
                 </form>
@@ -122,6 +122,14 @@
           <!-- End of GameOffer cards -->
        </div>
     </div>
+
+    <script>
+        function clearSearch() {
+            const searchInput = document.querySelector('input[name="search"]');
+            searchInput.value = '';
+            window.location.href = '/list';
+        }
+    </script>
 </body>
 <footer></footer>
 </html>

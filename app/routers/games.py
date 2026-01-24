@@ -9,7 +9,7 @@ router = APIRouter()
 templates = Jinja2Templates(directory="app/templates")
 
 
-@router.get("/")
+@router.get("")
 async def list_offers(
         request: Request,
         search: str | None = Query(None),
