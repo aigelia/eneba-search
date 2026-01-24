@@ -283,10 +283,20 @@ body {
 
 .buy_button {
     background-color: #fad318;
+    color: #1f0a4d;
     margin: 10px 0;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-weight: 600;
 }
 
-.price_info_container {
+.options_button {
+    background-color: #1f0a4d;
+    border: 1px solid white;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
 }
 
 .discount {
