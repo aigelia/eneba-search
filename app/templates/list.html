@@ -80,7 +80,7 @@
                       </span>
                    </div>
 
-                   <div class="region_container">
+                   <div class="region_container_card">
                       <span>{{ game.region }}</span>
                    </div>
 
@@ -95,7 +95,6 @@
                          </span>
                       </div>
 
-
                       <div class="final_price">
                          <span>
                             €{{ "%.2f"|format(game.final_price if game.final_price else game.full_price) }}
@@ -105,6 +104,8 @@
 
                       {% if game.cashback_amount %}
                       <div class="cashback_discount_info">Cashback: €{{ "%.2f"|format(game.cashback_amount) }}</div>
+                      {% else %}
+                      <div class="cashback_discount_info">&nbsp;</div>
                       {% endif %}
 
                       <div class="featured"><i class="far fa-heart"></i> {{ game.likes_count }}</div>
