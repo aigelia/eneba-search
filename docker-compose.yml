@@ -1,3 +1,4 @@
+version: "3.9"
 
 services:
   db:
@@ -37,5 +38,22 @@ services:
     volumes:
       - ./static:/app/static
 
+  caddy:
+    image: caddy:2
+    container_name: eneba-caddy
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - web
+    profiles: ["prod"]
+
 volumes:
   postgres_data:
+  caddy_data:
+  caddy_config:
